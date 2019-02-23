@@ -64,11 +64,11 @@ class TextFields extends React.Component {
         <div className={classes.root}>
           <AppBar position="static">
             <Toolbar>
-             
+
               <Typography variant="h6" color="inherit" className={classes.grow}>
-              Web Extractor
+                Rajaram's React POC
           </Typography>
-              
+
             </Toolbar>
           </AppBar>
         </div>

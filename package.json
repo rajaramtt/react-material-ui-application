@@ -1,6 +1,6 @@
 {
-  "name": "web-extractor",
-  "description": "Web Extractor",
+  "name": "react-material-ui-application",
+  "description": "react-material-ui-application",
   "version": "1.0",
   "private": true,
   "dependencies": {
