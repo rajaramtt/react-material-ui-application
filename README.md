@@ -1,11 +1,11 @@
 
 # react-material-ui-application
 
-Simple POC  of React.js nad Material UI
+Simple POC  of React.js and Material UI
 
 #  Requirements
 
-The angular project needs to be a minimum version of listed below.
+The react-material-ui-application project needs to be a minimum version of listed below.
 
 1. React 16.x 
 2. Node.js 10.x and npm 6.x
