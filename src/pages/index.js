@@ -1,6 +1,6 @@
 
 import React from 'react';
-import PropTypes from 'prop-types';
+import PropTypes, { string } from 'prop-types';
 import classNames from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -25,35 +25,44 @@ const styles = theme => ({
     marginRight: theme.spacing.unit,
     width: 200,
   },
-  dense: {
-    marginTop: 19,
-  },
-  menu: {
-    width: 200,
-  },
-  root: {
-    flexGrow: 1,
-  },
-  grow: {
-    flexGrow: 1,
-  },
-  menuButton: {
-    marginLeft: -12,
-    marginRight: 20,
-  },
-
-
 });
 
 
 class TextFields extends React.Component {
-  state = {
-    name: 'Cat in the Hat',
-  };
 
-  handleChange = name => event => {
-    this.setState({ [name]: event.target.value });
-  };
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      error: null,
+      isLoaded: false,
+      data: {}
+    };
+  }
+
+
+
+  componentDidMount() {
+    fetch("https://wjbzz6kwj6.execute-api.us-east-1.amazonaws.com/api/")
+      .then(res => res.json())
+      .then(
+        (result) => {
+          debugger;
+          this.setState({
+            isLoaded: true,
+            data: result
+          });
+        },
+        (error) => {
+          this.setState({
+            isLoaded: true,
+            error
+          });
+        }
+      )
+  }
+
+
 
   render() {
     const { classes } = this.props;
@@ -76,11 +85,9 @@ class TextFields extends React.Component {
 
         <form className={classes.container} noValidate autoComplete="off">
           <TextField
-            id="standard-name"
-            label="Name"
+            id="captcha"
+            label="CAPTCHA"
             className={classes.textField}
-            value={this.state.name}
-            onChange={this.handleChange('name')}
             margin="normal"
           />
         </form>
